@@ -32,3 +32,6 @@
 
 # .gitignore
 node_modules/
+
+#gemfile log to avoid problems in windows and linux enviromens
+Gemfile.lock
