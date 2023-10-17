@@ -29,3 +29,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# .gitignore
+node_modules/
+
+#gemfile log to avoid problems in windows and linux enviromens
+Gemfile.lock
