@@ -6,9 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:id] == 'sign_out'
-      sign_out current_user
-      redirect_to root_path
-    end
+    return unless params[:id] == 'sign_out'
+
+    sign_out current_user
+    redirect_to root_path
   end
 end
