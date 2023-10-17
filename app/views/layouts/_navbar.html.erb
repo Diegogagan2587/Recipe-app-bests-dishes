@@ -1,0 +1,28 @@
+<nav class="navbar">
+    <a class="navbar-brand" href="#">Recipe App</a>
+    <label for="navbar-toggler" class="navbar-toggler-label">
+        <span class="navbar-toggler-icon"></span>
+    </label>
+    <ul class="navbar-nav" id="navbarNav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Recipes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Public Recipes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Food</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Shopping List</a>
+        </li>
+        <% if user_signed_in? %>
+            <li class="nav-item">
+                <%= link_to 'Exit session', destroy_user_session_path, data: { turbo_method: :delete } %>
+            </li>
+        <% end %>
+    </ul>
+</nav>
