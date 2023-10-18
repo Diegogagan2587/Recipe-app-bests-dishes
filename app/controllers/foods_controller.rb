@@ -1,5 +1,7 @@
 class FoodsController < ApplicationController
-  def index; end
+  def index; 
+    @foods = current_user.foods
+  end
 
   def show; end
 
@@ -23,7 +25,7 @@ class FoodsController < ApplicationController
       format.html do
         if @food.save
           flash[:success] = 'Food was successfully created.'
-          redirect_to @food
+          redirect_to foods_path
         else
           flash.now[:error] = 'Food could not be created.'
           render :new
