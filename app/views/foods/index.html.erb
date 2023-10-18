@@ -1,4 +1,26 @@
-<h1>Foods#index</h1>
 <%=button_to 'Add Food', new_food_path, method: :get, class: 'add-food btn' %>
-<p>Find me in app/views/foods/index.html.erb</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Measurement Unit</th>
+      <th>Unit Price</th>
+      <th>Quantity</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%# We are going to iterate over each food and render a row for each one %>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td><%= food.price %></td>
+        <td><%= food.quantity %></td>
+        <td>
+          <%= link_to 'Delete', foods_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 
