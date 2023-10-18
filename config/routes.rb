@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root "users#index"
   resources :users, only: [:index, :show]
   resources :foods, only: [:index, :show, :new, :create] do
-    delte 'delete_food', on: :member
+    delete 'delete_food', on: :member
   end
 end
