@@ -12,7 +12,7 @@
     <%=f.label :quantity%>
     <%=f.text_field :quantity%>
 
-  <%= f.submit %>
+  <%= f.submit nil, class: "btn btn-primary"%>
   <%= link_to 'Cancel', foods_path, class: 'btn btn-danger' %>
 <% end %>
 
