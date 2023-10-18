@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :foods, only: [:index, :show, :new, :create] do
     delete 'delete_food', on: :member
   end
+  resources :general_shopping_list, only: [:index ]
 end
