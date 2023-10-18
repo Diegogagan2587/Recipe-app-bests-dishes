@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :recipes, only: %i[index show new create destroy]
   get '/public_recipe', to: 'recipes#public_recipe', as: 'public_recipe'
+  resources :foods, only: [:index, :show, :new, :create] do
+    delete 'delete_food', on: :member
+  end
 end
