@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  def index; 
+  def index
     @foods = current_user.foods
   end
 
@@ -20,7 +20,7 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.user = current_user
-  
+
     respond_to do |format|
       format.html do
         if @food.save
@@ -41,6 +41,7 @@ class FoodsController < ApplicationController
   end
 
   private
+
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
