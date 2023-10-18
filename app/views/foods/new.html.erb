@@ -1,5 +1,5 @@
-<%='you are trying to add a book'%>
-<%= form_with model: @food, url: {action: "create"} do |f| %>
+<%= stylesheet_link_tag 'new_food' %>
+<%= form_with model: @food, url: {action: "create"}, html: { class: 'new-food' } do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -15,3 +15,4 @@
   <%= f.submit %>
   <%= link_to 'Cancel', foods_path, class: 'btn btn-danger' %>
 <% end %>
+
