@@ -1,13 +1,39 @@
 class FoodsController < ApplicationController
-  def index
-  end
+  def index; end
 
-  def show
-  end
+  def show; end
 
   def new
+    @user = current_user
+    @food = Food.new(
+      user: @user
+    )
+    respond_to do |format|
+      format.html do
+        render :new
+      end
+    end
   end
 
   def create
-  end 
+    @food = Food.new(food_params)
+    @food.user = current_user
+  
+    respond_to do |format|
+      format.html do
+        if @food.save
+          flash[:success] = 'Food was successfully created.'
+          redirect_to @food
+        else
+          flash.now[:error] = 'Food could not be created.'
+          render :new
+        end
+      end
+    end
+  end
+
+  private
+  def food_params
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
+  end
 end
