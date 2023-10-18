@@ -1,2 +1,16 @@
 <%='you are trying to add a book'%>
-<%# We are goin to add a form to submit New food with: name, measurement_unig, price, quantity and User_id %>
+<%= form_with model: @user, url: {action: "create"} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%=f.label :measurement_unit%>
+  <%=f.text_field :measurement_unit%>
+
+  <%=f.label :price%>
+  0<%=f.text_field :price%>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.submit %>
+<% end %>
