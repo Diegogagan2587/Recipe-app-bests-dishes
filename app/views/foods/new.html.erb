@@ -1,5 +1,5 @@
 <%='you are trying to add a book'%>
-<%= form_with model: @user, url: {action: "create"} do |f| %>
+<%= form_with model: @food, url: {action: "create"} do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -7,10 +7,10 @@
   <%=f.text_field :measurement_unit%>
 
   <%=f.label :price%>
-  0<%=f.text_field :price%>
+  <%=f.text_field :price%>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+    <%=f.label :quantity%>
+    <%=f.text_field :quantity%>
 
   <%= f.submit %>
 <% end %>
