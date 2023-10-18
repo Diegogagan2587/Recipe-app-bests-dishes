@@ -1,0 +1,2 @@
+class GeneralShoppingListController < ApplicationController
+end
