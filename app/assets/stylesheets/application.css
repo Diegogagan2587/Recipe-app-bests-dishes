@@ -13,3 +13,147 @@
  *= require_tree .
  *= require_self
  */
+
+.flat-ui-card {
+  background-color: #008080;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.flat-ui-header {
+  background-color: #008080;
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.flat-ui-recipe-card {
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flat-ui-recipe-card .btn {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.flat-ui-recipe-card .btn:hover {
+  background-color: #c0392b;
+}
+
+.recipe-card {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card .card-header {
+  background-color: #008080;
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #fff;
+}
+
+.recipe-card .card-body {
+  padding: 20px;
+}
+
+.recipe-card .card-title {
+  font-size: 20px;
+  color: #333;
+}
+
+.recipe-card .card-text {
+  color: #666;
+}
+
+.recipe-card .btn-delete {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.recipe-card .btn-delete:hover {
+  background-color: #c0392b;
+}
+
+.new-recipe-card {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.new-recipe-card h2 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.new-recipe-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.new-recipe-card label {
+  color: #666;
+}
+
+.new-recipe-card .form-control {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.new-recipe-card .btn-submit {
+  background-color: #008080;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.new-recipe-card .btn-submit:hover {
+  background-color: #2980b9;
+}
+
+.new-recipe-card .btn-back {
+  background-color: #ddd;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.new-recipe-card .btn-back:hover {
+  background-color: #ccc;
+}
+
+.ingredient-card {
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #fff;
+}
+
+.btn-remove {
+  background-color: #f00;
+  color: #fff;
+}
+
+.text-not-allowed {
+  color: #ccc;
+}
