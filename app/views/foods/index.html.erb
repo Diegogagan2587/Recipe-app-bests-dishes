@@ -18,7 +18,7 @@
         <td><%= food.price %></td>
         <td><%= food.quantity %></td>
         <td>
-          <%= link_to 'Delete', foods_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= button_to 'Delete', delete_food_food_path(id: food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
