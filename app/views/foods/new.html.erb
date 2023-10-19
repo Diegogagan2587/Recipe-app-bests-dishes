@@ -1,18 +1,39 @@
-<%= stylesheet_link_tag 'new_food' %>
-<%= form_with model: @food, url: {action: "create"}, html: { class: 'new-food' } do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+          <h4 class="m-0">Create New Food</h4>
+        </div>
+        <div class="card-body">
+          <%= form_with(model: @food, url: { action: "create" }, html: { class: 'new-food' }) do |f| %>
+            <div class="mb-3">
+              <%= f.label :name, class: 'form-label' %>
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
 
-  <%=f.label :measurement_unit%>
-  <%=f.text_field :measurement_unit%>
+            <div class="mb-3">
+              <%= f.label :measurement_unit, class: 'form-label' %>
+              <%= f.text_field :measurement_unit, class: 'form-control' %>
+            </div>
 
-  <%=f.label :price%>
-  <%=f.text_field :price%>
+            <div class="mb-3">
+              <%= f.label :price, class: 'form-label' %>
+              <%= f.text_field :price, class: 'form-control' %>
+            </div>
 
-    <%=f.label :quantity%>
-    <%=f.text_field :quantity%>
+            <div class="mb-3">
+              <%= f.label :quantity, class: 'form-label' %>
+              <%= f.text_field :quantity, class: 'form-control' %>
+            </div>
 
-  <%= f.submit nil, class: "btn btn-primary"%>
-  <%= link_to 'Cancel', foods_path, class: 'btn btn-danger' %>
-<% end %>
-
+            <div class="mb-3">
+              <%= f.submit "Create Food", class: "btn btn-primary" %>
+              <%= link_to 'Cancel', foods_path, class: 'btn btn-danger' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
