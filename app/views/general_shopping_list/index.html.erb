@@ -1,0 +1,35 @@
+<div class="foods">
+<h1>
+    Shopping List
+</h1>
+<div>
+    <span>Amount of food items to buy: <%=@total_items%></span>
+    <span>Total value of food needed: $ <%=@total_price%></span>
+</div>
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @shopping_list.empty? %>
+                <tr>
+                    <td colspan="3">No food items to buy</td>
+                </tr>
+        <%else%>
+
+            <%@shopping_list.each do | food_name, food |%>
+                <tr>
+                    <td><%=food_name%></td>
+                    <td><%=food[:quantity]%></td>
+                    <td>$ <%=food[:price]%></td>
+                </tr>
+            <%end%>
+        <% end %>
+
+    </tbody>
+</table>
+</div>
