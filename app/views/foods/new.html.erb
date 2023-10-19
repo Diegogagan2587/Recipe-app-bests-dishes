@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag 'new_food' %>
+<%= form_with model: @food, url: {action: "create"}, html: { class: 'new-food' } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%=f.label :measurement_unit%>
+  <%=f.text_field :measurement_unit%>
+
+  <%=f.label :price%>
+  <%=f.text_field :price%>
+
+    <%=f.label :quantity%>
+    <%=f.text_field :quantity%>
+
+  <%= f.submit nil, class: "btn btn-primary"%>
+  <%= link_to 'Cancel', foods_path, class: 'btn btn-danger' %>
+<% end %>
+
