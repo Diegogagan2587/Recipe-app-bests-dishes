@@ -1,8 +1,10 @@
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+<div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
   <div class="card p-4  shadow-lg" style="width: 400px;">
     <div class="card-body ">
+    <div class="logo text-center mb-4">
+    <%= image_tag('icon.png', alt: 'Recipe App Logo', size: '70x70', class: 'me-3') %>
+    </div>
       <h2 class="card-title text-center mb-4">Sign up</h2>
-
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
