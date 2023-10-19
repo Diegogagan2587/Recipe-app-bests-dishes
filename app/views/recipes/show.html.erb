@@ -1,6 +1,6 @@
 <div class="body-max-width mx-auto mt-5">
   <div class="card w-50 mx-auto">
-    <div class="card-header d-flex align-items-center justify-content-between">
+    <div class="card-header d-flex align-items-center justify-content-between shadow-lg">
       <div class="d-flex align-items-center">
         <i class="bi bi-journal me-2 fs-4"></i>
         <h4 class="m-0"><%= @recipe.name %></h4>
@@ -18,10 +18,7 @@
       <p class="mb-0"><strong>Cooking Time:</strong> <%= @recipe.cooking_time %> minutes</p>
       <p class="mb-0"><strong>Description:</strong> <%= @recipe.description %></p>
       <div class="d-flex justify-content-between">
-        <%= link_to general_shopping_lists_path, class: 'btn btn-secondary px-4' do %>
-          Go to my Shopping List
-          <i class="bi bi-box-arrow-up-right text-white ms-1"></i>
-        <% end %>
+       
         <% if current_user == @recipe.user %>
           <%= link_to '+ Add Ingredient', new_recipe_food_path(recipe_id: @recipe.id), class: 'btn btn-primary px-4' %>
         <% else %>
