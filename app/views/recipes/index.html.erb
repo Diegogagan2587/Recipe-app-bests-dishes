@@ -1,9 +1,9 @@
 <div class="body-max-width mx-auto mt-5">
   <div class="container">
-    <div class="row justify-content-center ">
+    <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="card recipe-card">
-          <div class="card-header d-flex justify-content-between align-items-center shadow-lg" >
+          <div class="card-header d-flex justify-content-between align-items-center shadow-lg">
             <div class="d-flex align-items-center">
               <i class="bi bi-journal me-2 fs-4"></i>
               <h4 class="m-0">Your Recipes</h4>
@@ -23,7 +23,27 @@
                     </div>
                   </div>
                   <div class="card-footer d-flex justify-content-end">
-                    <%= button_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRecipeModal<%= recipe.id %>">
+                      Delete
+                    </button>
+
+                    <div class="modal fade" id="deleteRecipeModal<%= recipe.id %>" tabindex="-1" aria-labelledby="deleteRecipeModalLabel<%= recipe.id %>" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="deleteRecipeModalLabel<%= recipe.id %>">Delete Recipe</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Are you sure you want to delete this recipe?
+                          </div>
+                          <div class="modal-footer">
+                            <%= button_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               <% end %>
