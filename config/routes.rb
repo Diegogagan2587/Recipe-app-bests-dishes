@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index'
   resources :users, only: [:index, :show]
   resources :recipes, only: %i[index show new create destroy]
+  resources :recipe_foods, only: %i[new create destroy]
   get '/public_recipe', to: 'recipes#public_recipe', as: 'public_recipe'
 end
