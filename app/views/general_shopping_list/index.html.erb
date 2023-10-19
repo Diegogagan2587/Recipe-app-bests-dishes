@@ -15,12 +15,21 @@
         </tr>
     </thead>
     <tbody>
-        <%@shoppingList.each do | food_name, food |%>
-        <tr>
-            <td><%=food_name%></td>
-            <td><%=food[:quantity]%></td>
-            <td><%=food[:price]%></td>
-        <%end%>
+        <% if @shopping_list.empty? %>
+                <tr>
+                    <td colspan="3">No food items to buy</td>
+                </tr>
+        <%else%>
+
+            <%@shopping_list.each do | food_name, food |%>
+                <tr>
+                    <td><%=food_name%></td>
+                    <td><%=food[:quantity]%></td>
+                    <td><%=food[:price]%></td>
+                </tr>
+            <%end%>
+        <% end %>
+
     </tbody>
 </table>
 </div>
