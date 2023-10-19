@@ -11,17 +11,16 @@ class GeneralShoppingListController < ApplicationController
         @shopping_list[food.name][:quantity] += recipefood.quantity - food.quantity
         @shopping_list[food.name][:price] += food.price * @shopping_list[food.name][:quantity]
       end
-      #now we calculate the total amount of items in the shopping list
-        @total_items = 0
-        @shopping_list.each do |key, value|
-          @total_items += value[:quantity]
-        end 
-        #now we calculate the total price of the shopping list
-        @total_price = 0
-        @shopping_list.each do |key, value|
-            @total_price += value[:price]
-            end
-            
+      # now we calculate the total amount of items in the shopping list
+      @total_items = 0
+      @shopping_list.each do |_key, value|
+        @total_items += value[:quantity]
+      end
+      # now we calculate the total price of the shopping list
+      @total_price = 0
+      @shopping_list.each do |_key, value|
+        @total_price += value[:price]
+      end
     end
   end
 end
