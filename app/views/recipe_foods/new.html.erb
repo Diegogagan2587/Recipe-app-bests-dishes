@@ -1,0 +1,25 @@
+<div class="card d-flex w-25 p-3 mx-auto mt-5">
+  <h2 class="text-center">Add New Ingredient</h2>
+  <% if @foods.present? %>
+    <%= form_with(model: @recipe_food, local: true, html: { class: 'd-flex flex-column gap-2' }) do |f| %>
+      <div class="form-group d-flex flex-column">
+        <%= f.hidden_field :recipe_id, value: @recipe.id %>
+      </div>
+      <div class="form-group d-flex flex-column">
+        <%= f.label :food_id, class: 'text-secondary' %>
+        <%= f.collection_select :food_id, @foods, :id, :name, { prompt: 'Select a food' }, class: 'form-control', required: true %>
+      </div>
+      <div class="form-group d-flex flex-column">
+        <%= f.label :quantity, class: 'text-secondary' %>
+        <%= f.number_field :quantity, class: 'form-control', required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.submit 'Add New Ingredient', class: 'btn btn-primary mt-2 w-100 px-4' %>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="text-center mt-2">There are no other ingredients available to add to this recipe. <br /> You need to <b>add new food</b> to the inventory. <br />You want to add a new one?</p>
+    <%= link_to "+ Add New Food", new_food_path, class: "btn btn-primary mt-2 w-100" %>
+  <% end %>
+  <%= link_to 'Back to Recipe', @recipe, class: 'btn border-0 btn-outline-secondary mt-2' %>
+</div>
