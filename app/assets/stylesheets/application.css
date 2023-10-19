@@ -157,3 +157,7 @@
 .text-not-allowed {
   color: #ccc;
 }
+
+.circle-user {
+  margin-right: 3rem;
+}
