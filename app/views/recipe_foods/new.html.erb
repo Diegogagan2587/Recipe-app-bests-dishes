@@ -1,4 +1,4 @@
-<div class="card d-flex w-25 p-3 mx-auto mt-5">
+<div class="card d-flex w-25 p-3 mx-auto mt-5 shadow-lg">
   <h2 class="text-center">Add New Ingredient</h2>
   <% if @foods.present? %>
     <%= form_with(model: @recipe_food, local: true, html: { class: 'd-flex flex-column gap-2' }) do |f| %>
