@@ -39,12 +39,10 @@ class RecipesController < ApplicationController
   def toggle_public
     @recipe = Recipe.find(params[:id])
     @recipe.update(public: !@recipe.public)
-    
+
     flash[:notice] = @recipe.public ? 'Recipe is now public.' : 'Recipe is now private.'
     redirect_to @recipe
   end
-  
-  
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
