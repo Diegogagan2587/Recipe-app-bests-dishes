@@ -17,6 +17,14 @@
       </div>
       <p class="mb-0"><strong>Cooking Time:</strong> <%= @recipe.cooking_time %> minutes</p>
       <p class="mb-0"><strong>Description:</strong> <%= @recipe.description %></p>
+      <div class="d-flex justify-content-between">
+       
+        <% if current_user == @recipe.user %>
+          <%= link_to '+ Add Ingredient', new_recipe_food_path(recipe_id: @recipe.id), class: 'btn btn-primary px-4' %>
+        <% else %>
+          <%= button_to '+ Add Ingredient', new_recipe_food_path(recipe_id: @recipe.id), class: 'btn btn-primary px-4 disabled' %>
+        <% end %>
+      </div>
     </div>
     <div class="card-body">
       <% if @ingredients.present? %>
