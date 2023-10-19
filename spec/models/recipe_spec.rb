@@ -9,7 +9,7 @@ RSpec.describe Recipe, type: :model do
       cooking_time: 15,
       description: 'Healthy fruit salad recipe',
       public: true,
-      user: user
+      user:
     )
     expect(recipe).to be_valid
   end
