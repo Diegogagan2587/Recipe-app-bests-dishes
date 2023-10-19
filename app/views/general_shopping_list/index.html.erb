@@ -1,1 +1,26 @@
-<%="Place Holder for general_shoppin_list#index"%>
+<div class="foods">
+<h1>
+    Shopping List
+</h1>
+<div>
+    <span>Amount of food items to buy: 3</span>
+    <span>Total value of food needed: $819</span>
+</div>
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%@shoppingList.each do | food_name, food |%>
+        <tr>
+            <td><%=food_name%></td>
+            <td><%=food[:quantity]%></td>
+            <td><%=food[:price]%></td>
+        <%end%>
+    </tbody>
+</table>
+</div>
