@@ -1,30 +1,40 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  before do
-    @user = User.create(name: 'paloma malevola', email: 'paloma_malevola@mail.com', password: 'palomapaloma')
-    @eggs_recipe = Recipe.create(name: 'Eggs with jam',
-                                 preparation_time: 8,
-                                 cooking_time: 15,
-                                 description: '3 eggs with 2 jam',
-                                 public: true, user: @user)
+  it 'is valid with valid attributes' do
+    user = User.create(name: 'Test User', email: 'test@example.com', password: 'password123')
+    recipe = Recipe.new(
+      name: 'Fruit Salad',
+      preparation_time: 10,
+      cooking_time: 15,
+      description: 'Healthy fruit salad recipe',
+      public: true,
+      user:
+    )
+    expect(recipe).to be_valid
   end
-  it 'eggs should have a name' do
-    expect(@eggs_recipe.name).to eq('Eggs with jam')
+
+  it 'is not valid without a user id' do
+    recipe = Recipe.new(
+      name: 'Fruit Salad',
+      preparation_time: 10,
+      cooking_time: 15,
+      description: 'Healthy fruit salad recipe',
+      public: true,
+      user_id: nil
+    )
+    expect(recipe).to_not be_valid
   end
-  it 'eggs should have a preparation_time' do
-    expect(@eggs_recipe.preparation_time).to eq('8')
-  end
-  it 'eggs should have a cooking_time' do
-    expect(@eggs_recipe.cooking_time).to eq('15')
-  end
-  it 'eggs should have a description' do
-    expect(@eggs_recipe.description).to eq('3 eggs with 2 jam')
-  end
-  it 'eggs should have a public' do
-    expect(@eggs_recipe.public).to eq(true)
-  end
-  it 'eggs should have a user' do
-    expect(@eggs_recipe.user).to eq(@user)
+
+  it 'is not valid with a user id that does not exist' do
+    recipe = Recipe.new(
+      name: 'Fruit Salad',
+      preparation_time: 10,
+      cooking_time: 15,
+      description: 'Healthy fruit salad recipe',
+      public: true,
+      user_id: 1000
+    )
+    expect(recipe).to_not be_valid
   end
 end
