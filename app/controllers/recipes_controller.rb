@@ -22,36 +22,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  def public_recipe
-    @recipes = Recipe
-      .includes(:user)
-      .joins(:user)
-      .where(public: true)
-      .order(updated_at: :desc)
-      .select('recipes.*, users.name AS user_name')
-
-    @ingredients = []
-
-    @recipes.each do |recipe|
-      recipe_foods = RecipeFood.where(recipe_id: recipe.id).includes(:food)
-      next unless recipe_foods.any?
-
-      ingredients = recipe_foods.map do |recipe_food|
-        {
-          id: recipe_food.id,
-          name: recipe_food.food.name,
-          quantity: recipe_food.quantity,
-          measurement_unit: recipe_food.food.measurement_unit,
-          price: recipe_food.quantity * recipe_food.food.price
-        }
-      end
-      @ingredients.concat(ingredients)
-    end
-
-    @total_number_of_foods = @ingredients.length
-    @total_price = @ingredients.sum { |ingredient| ingredient[:price] }
-  end
-
   def new
     @recipe = Recipe.new
   end
@@ -90,5 +60,55 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
+  end
+
+  def public_recipe
+    @recipes = load_public_recipes
+    @ingredients = calculate_total_ingredients(@recipes)
+    calculate_totals
+  end
+
+  private
+
+  def load_public_recipes
+    Recipe.includes(:user)
+      .joins(:user)
+      .where(public: true)
+      .order(updated_at: :desc)
+      .select('recipes.*, users.name AS user_name')
+  end
+
+  def calculate_total_ingredients(recipes)
+    ingredients = []
+
+    recipes.each do |recipe|
+      recipe_foods = load_recipe_foods(recipe)
+      next unless recipe_foods.any?
+
+      ingredients.concat(calculate_ingredients(recipe_foods))
+    end
+
+    ingredients
+  end
+
+  def load_recipe_foods(recipe)
+    RecipeFood.where(recipe_id: recipe.id).includes(:food)
+  end
+
+  def calculate_ingredients(recipe_foods)
+    recipe_foods.map do |recipe_food|
+      {
+        id: recipe_food.id,
+        name: recipe_food.food.name,
+        quantity: recipe_food.quantity,
+        measurement_unit: recipe_food.food.measurement_unit,
+        price: recipe_food.quantity * recipe_food.food.price
+      }
+    end
+  end
+
+  def calculate_totals
+    @total_number_of_foods = @ingredients.length
+    @total_price = @ingredients.sum { |ingredient| ingredient[:price] }
   end
 end
