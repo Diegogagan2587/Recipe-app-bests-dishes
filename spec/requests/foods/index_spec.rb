@@ -51,5 +51,10 @@ RSpec.describe FoodsController, type: :controller do
       expect(response.body).to include('piece')
       expect(response.body).to include('kg')
     end
+    it 'should delete a food' do
+      expect do
+        delete :delete_food, params: { id: @egg.id }
+      end.to change(Food, :count).by(-1)
+    end
   end
 end
