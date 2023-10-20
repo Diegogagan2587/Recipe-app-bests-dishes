@@ -1,4 +1,5 @@
 class GeneralShoppingListController < ApplicationController
+  before_action :authenticate_user!
   def index
     @recipefoods = current_user.recipe_foods
     @shopping_list = Hash.new { |hash, key| hash[key] = { quantity: 0, price: 0 } }
