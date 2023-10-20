@@ -1,23 +1,23 @@
 <div class="body-max-width mx-auto mt-5 ">
-  <div class="container">
+  <div class="container" style="width:55rem">
     <div class="card flat-ui-card shadow-lg">
       <div class="card-header d-flex justify-content-between align-items-center flat-ui-header">
         <div class="d-flex align-items-center">
           <i class="bi bi-book me-2 fs-4"></i>
           <h4 class="m-0">Public Recipes</h4>
         </div>
-        <%= link_to '+ Add New Recipe', new_recipe_path, class: 'btn btn-primary' %>
       </div>
-      <div class="card-body">
+      <div class="card-body" >
         <% if @recipes.any? %>
           <div class="row g-4">
             <% @recipes.each do |recipe| %>
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-12">
                 <div class="card recipe-card flat-ui-recipe-card">
-                  <div class="card-body">
+                  <div class="card-body shadow-lg">
                     <h5 class="card-title"><%= link_to recipe.name, recipe, class: 'text-decoration-none' %></h5>
                     <p class="card-text"><%= recipe.description %></p>
-                  </div>
+                    <p class="card-text">By: <%= recipe.user_name %></p>
+                    </div>
                   <% if current_user == recipe.user %>
                   <div class="card-footer">
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteRecipeModal" data-recipe-id="<%= recipe.id %>">
