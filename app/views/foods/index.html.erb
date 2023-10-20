@@ -19,7 +19,7 @@
         <tr>
           <td><%= food.name %></td>
           <td><%= food.measurement_unit %></td>
-          <td><%= food.price %></td>
+          <td>$ <%= food.price %></td>
           <td><%= food.quantity %></td>
           <td>
             <%= button_to 'Delete', delete_food_food_path(id: food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
