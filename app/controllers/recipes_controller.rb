@@ -23,8 +23,14 @@ class RecipesController < ApplicationController
   end
 
   def public_recipe
-    @recipes = Recipe.includes(:user).where(public: true).order(updated_at: :desc)
+    @recipes = Recipe
+      .includes(:user)
+      .joins(:user)
+      .where(public: true)
+      .order(updated_at: :desc)
+      .select('recipes.*, users.name AS user_name')
   end
+  
 
   def new
     @recipe = Recipe.new
