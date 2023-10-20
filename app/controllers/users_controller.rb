@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   def index
     # if no loggged in we redirect to loggin
     redirect_to new_user_session_path unless user_signed_in?
+    # we redirect to my recipes
+    redirect_to recipes_path
   end
 
   def show

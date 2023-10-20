@@ -27,7 +27,6 @@ RSpec.describe 'Foods Page', type: :system do
         fill_in 'Password', with: @user.password
         click_button 'Log in'
         click_link 'Food'
-        
         expect(page).to have_content('Food')
         expect(page).to have_content('egg')
         expect(page).to have_content('piece')
@@ -39,7 +38,7 @@ RSpec.describe 'Foods Page', type: :system do
     end
 
     it 'should create a new food' do
-        visit root_path
+        visit foods_path
         fill_in 'Email', with: @user.email
         fill_in 'Password', with: @user.password
         click_button 'Log in'
