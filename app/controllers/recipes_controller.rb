@@ -29,6 +29,27 @@ class RecipesController < ApplicationController
       .where(public: true)
       .order(updated_at: :desc)
       .select('recipes.*, users.name AS user_name')
+  
+    @ingredients = []
+  
+    @recipes.each do |recipe|
+      recipe_foods = RecipeFood.where(recipe_id: recipe.id).includes(:food)
+      if recipe_foods.any?
+        ingredients = recipe_foods.map do |recipe_food|
+          {
+            id: recipe_food.id,
+            name: recipe_food.food.name,
+            quantity: recipe_food.quantity,
+            measurement_unit: recipe_food.food.measurement_unit,
+            price: recipe_food.quantity * recipe_food.food.price
+          }
+        end
+        @ingredients.concat(ingredients)
+      end
+    end
+  
+    @total_number_of_foods = @ingredients.length
+    @total_price = @ingredients.sum { |ingredient| ingredient[:price] }
   end
   
 
