@@ -31,27 +31,54 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Recipe_App] <a name="about-project"></a>
+# 📖 Recipe App <a name="about-project"></a>
 
-**[Recipe_App]** is a...
+**Recipe App** keeps track of all your recipes and ingredients. It will allow you to save ingredients, keep track of what you have, create recipes and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
-
-  <ul>
+<details>
+  <summary>Client</summary>
+    <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
+    <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+  </ul>
+</details>
+<details>
+  <summary>Server</summary>
+    <ul>
     <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="https://github.com/heartcombo/devise">Devise (for authentication)</a></li>
+    <li><a href="https://render.com/docs/deploy-rails">Render services (for deployment)</a></li>
   </ul>
+</details>
+<details>
+  <summary>Testing</summary>
+    <ul>
+    <li><a href="https://rspec.info/">RSpec</a></li>
+    <li><a href="https://github.com/rspec/rspec-rails">rspec-rails</a></li>
+    <li><a href="https://github.com/teamcapybara/capybara">Capybara</a></li>
+  </ul>
+</details>
+
+
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+> Lear more about our key features below:
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **User authentication**
+- **Public and privates recipes**
+- **Food Page**
+- **Home Page**
+- **Shopping List page**
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -59,9 +86,9 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
+> Would you like to see a live preview?
 
-- [Live Demo Link](https://google.com)
+- [My recipe app](https://my-recipe-app-d41m.onrender.com/users/sign_in)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -69,83 +96,70 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
+> Would you like to make user of this project? see below:
 
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
-
-<!--
-Example command:
+If you haven't install rails yet run next command:
 
 ```sh
  gem install rails
 ```
- -->
 
 ### Setup
 
 Clone this repository to your desired folder:
-
-<!--
-Example commands:
-
+open desired folder:
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+cd my-folder
 ```
---->
+then clonde the project:
+```sh
+  git clone git@github.com:Diegogagan2587/Recipe-app-bests-dishes.git
+```
+
 
 ### Install
-
+We make use of some gems so in order to get all required gems please
 Install this project with:
 
-<!--
-Example command:
-
+Open project folder:
 ```sh
-  cd my-project
-  gem install
+  cd Recipe-app-bests-dishes
+  
 ```
---->
+then run:
+```sh
+gem install
+```
+
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
   rails server
 ```
---->
+then within your browser go to : `http://localhost:3000`
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+  rspec
 ```
---->
+
 
 ### Deployment
 
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
+for deployment you can use your prefered service or deploy on render.
+if you want to deploy on reder go to:
+[Getting Started with Ruby on Rails on Render](https://render.com/docs/deploy-rails)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,18 +167,18 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+> Do you want to know more about the authors?
 
 👤 **Henok Mekonnen**
 
-- GitHub: [@githubhandle](https://github.com/henask12)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/henokmekonnen1)
+- GitHub: [@henask12](https://github.com/henask12)
+- LinkedIn: [Henok Mekonnen](https://www.linkedin.com/in/henokmekonnen1)
 
-👤 **Author2**
+👤 **Diego Vidal Lopez**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@Diegogagan2587](https://github.com/Diegogagan2587)
+- Twitter: [@dieg02587](https://twitter.com/dieg02587)
+- LinkedIn: [Diego Vidal Lopez](https://www.linkedin.com/in/diego-vidal-lopez/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -172,11 +186,11 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
+> We might implement next features later:
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **Comments section for Public Recipes**
+- [ ] **Rating sistem for public recipes**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -186,7 +200,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/Diegogagan2587/Recipe-app-bests-dishes/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -194,9 +208,8 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
 
-If you like this project...
+If you like this project please give us an star!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -204,9 +217,8 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
 
-I would like to thank...
+I would like to thank to Microverse for proposing this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -215,7 +227,4 @@ I would like to thank...
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
