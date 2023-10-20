@@ -20,8 +20,7 @@ class RecipesController < ApplicationController
         }
       end
     end
-  end  
-  
+  end
 
   def public_recipe
     @recipes = Recipe.includes(:user).where(public: true).order(updated_at: :desc)
