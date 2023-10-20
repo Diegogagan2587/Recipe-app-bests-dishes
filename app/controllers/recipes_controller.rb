@@ -7,26 +7,22 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
-    @recipe_foods = RecipeFood.where(recipe_id: params[:id])
-
+    @recipe_foods = RecipeFood.where(recipe_id: params[:id]).includes(:food)
+  
     if @recipe_foods.any?
-      @ingredients = []
-      @recipe_foods.each do |recipe_food|
-        @ingredients << {
+      @ingredients = @recipe_foods.map do |recipe_food|
+        {
           id: recipe_food.id,
-          name: Food.find_by(id: recipe_food.food_id).name,
+          name: recipe_food.food.name,
           quantity: recipe_food.quantity,
-          measurement_unit: Food.find_by(id: recipe_food.food_id).measurement_unit,
-          price: recipe_food.quantity * Food.find_by(id: recipe_food.food_id).price
+          measurement_unit: recipe_food.food.measurement_unit,
+          price: recipe_food.quantity * recipe_food.food.price
         }
       end
     end
-
-    return unless @recipe.nil?
-
-    flash[:error] = 'Recipe not found'
-    redirect_to recipes_path
   end
+  
+  
 
   def public_recipe
     @recipes = Recipe.includes(:user).where(public: true).order(created_at: :desc)
