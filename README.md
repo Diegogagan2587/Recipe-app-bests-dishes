@@ -53,6 +53,7 @@
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
     <li><a href="https://github.com/heartcombo/devise">Devise (for authentication)</a></li>
     <li><a href="https://render.com/docs/deploy-rails">Render services (for deployment)</a></li>
+    <li><a href="https://www.elephantsql.com/docs/index.html">ElephantSQL(database hosting service)</a></li>
   </ul>
 </details>
 <details>
