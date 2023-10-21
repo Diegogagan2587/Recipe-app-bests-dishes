@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  devise_for :users, controllers: { registrations: 'registrations' }
+  root "home#index"
+  get '/home', to: 'home#index'
+  resources :users, only: [:index, :show]
+  resources :recipe_foods, only: %i[new create destroy]
+  resources :recipes, only: %i[index show new create destroy] do
+    member do
+      patch 'toggle_public'
+    end
+  end
+  get '/public_recipe', to: 'recipes#public_recipe', as: 'public_recipe'
+  resources :foods, only: [:index, :show, :new, :create] do
+    delete 'delete_food', on: :member
+  end
+  resources :general_shopping_list, only: [:index ]
 end

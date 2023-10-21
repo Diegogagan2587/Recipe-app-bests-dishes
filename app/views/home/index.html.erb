@@ -1,0 +1,53 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-lg">
+        <div class="card-header bg-secondary text-white">
+          <i class="bi bi-book me-2 fs-4"></i> List of Recipes
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @user_lastest_recipes.each do |recipe| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <%= link_to recipe_path(recipe) do %>
+                <%= recipe.name %>
+              <% end %>
+              <span class="badge bg-<%= recipe.public ? 'success' : 'danger' %>">
+                <%= recipe.public ? 'Public' : 'Private' %>
+              </span>
+            </li>
+          <% end %>
+        </ul>
+        <div class="card-footer">
+          <%= link_to "Add New Recipe", new_recipe_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-lg">
+        <div class="card-header bg-secondary text-white">
+          <i class="bi bi-list me-2 fs-4"></i> Food Inventory
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @user_lastest_foods.each do |food| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <%= food.name %>
+              <span class="badge bg-secondary">
+                <%= food.quantity %> <%= food.measurement_unit %>
+              </span>
+            </li>
+          <% end %>
+        </ul>
+        <div class="card-footer">
+          <%= link_to "Add New Food", new_food_path, class: "btn btn-primary" %>
+        </div>
+        <div class="card-footer">
+          <%= link_to general_shopping_list_index_path, class: "btn btn-warning" do %>
+            Go to my Shopping List
+            <i class="bi bi-box-arrow-up-right text-white ms-2"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

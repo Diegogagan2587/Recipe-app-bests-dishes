@@ -29,3 +29,13 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# .gitignore
+node_modules/
+
+#gemfile log to avoid problems in windows and linux enviromens
+Gemfile.lock
+
+# Since each michin have different db config and diferrent envioment we 
+# must ignore database.yml
+/config/database.yml

@@ -1,0 +1,32 @@
+<%= stylesheet_link_tag 'foods' %>
+<div class="foods">
+  <div class='add-food-container'>
+    <%=button_to 'Add Food', new_food_path, method: :get, class: 'add-food btn btn-primary'%>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%# We are going to iterate over each food and render a row for each one %>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td>$ <%= food.price %></td>
+          <td><%= food.quantity %></td>
+          <td>
+            <%= button_to 'Delete', delete_food_food_path(id: food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,9 @@
+.foods {
+  padding: 3%;
+}
+
+.add-food-container {
+  display: flex;
+  padding-right: 2%;
+  justify-content: flex-end;
+}

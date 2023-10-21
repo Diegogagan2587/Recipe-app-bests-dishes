@@ -1,0 +1,37 @@
+<div class="card d-flex w-25 p-3 mx-auto mt-5 new-recipe-card shadow-lg">
+  <h2 class="text-center">New Recipe</h2>
+  <%= form_for @recipe, html: { class: 'd-flex flex-column' } do |f| %>
+    <div class="form-group d-flex flex-column gap-2">
+      <%= f.label :name, class: 'text-secondary' %>
+      <%= f.text_field :name, class: 'form-control', required: true %>
+    </div>
+
+    <div class="form-group d-flex flex-column gap-2">
+      <%= f.label :preparation_time, class: 'text-secondary' %>
+      <%= f.number_field :preparation_time, class: 'form-control', required: true %>
+    </div>
+
+    <div class="form-group d-flex flex-column gap-2">
+      <%= f.label :cooking_time, class: 'text-secondary' %>
+      <%= f.number_field :cooking_time, class: 'form-control', required: true %>
+    </div>
+
+    <div class="form-group d-flex flex-column gap-2">
+      <%= f.label :description, class: 'text-secondary' %>
+      <%= f.text_area :description, class: 'form-control', required: true, rows: 4 %>
+    </div>
+
+    <div class="form-check">
+      <%= f.label :public, class: 'form-check-label' do %>
+        <%= f.check_box :public, class: 'form-check-input' %>
+        Public Recipe
+      <% end %>
+    </div>
+
+    <div class="form-group d-flex">
+      <%= f.submit '+ Add New Recipe', class: 'btn btn-submit w-50 px-4 mb-2 me-2' %>
+      <%= link_to 'Back to Recipes', recipes_path, class: 'btn btn-back w-50 px-4 mb-2 me-2 border-0' %>
+    </div>
+  <% end %>
+
+</div>

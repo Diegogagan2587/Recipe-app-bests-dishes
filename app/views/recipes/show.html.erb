@@ -1,0 +1,75 @@
+<div class="card w-50 mx-auto">
+  <div class="card-header d-flex align-items-center justify-content-between shadow-lg">
+    <div class="d-flex align-items-center">
+      <i class="bi bi-journal me-2 fs-4"></i>
+      <h4 class="m-0"><%= @recipe.name %></h4>
+    </div>
+    <%= link_to 'Back to Recipes', recipes_path, class: 'btn btn-outline-secondary' %>
+  </div>
+  <div class="d-flex flex-column gap-3 p-3">
+    <div class="d-flex justify-content-between">
+      <p class="mb-0"><strong>Preparation Time:</strong> <%= @recipe.preparation_time %> minutes</p>
+      <div class="form-check form-switch">
+        <%= form_for @recipe, url: toggle_public_recipe_path(@recipe), method: :patch, remote: true, authenticity_token: true do |f| %>
+          <%= f.label :public, @recipe.public ? "Private" : "Public", class: "form-check-label", for: "public-toggle" %>
+          <%= f.check_box :public, class: "form-check-input", id: "public-toggle", onchange: "this.form.submit()" %>
+        <% end %>
+      </div>      
+    </div>
+    <p class="mb-0"><strong>Cooking Time:</strong> <%= @recipe.cooking_time %> minutes</p>
+    <p class="mb-0"><strong>Description:</strong> <%= @recipe.description %></p>
+    <div class="d-flex justify-content-between">
+      <% if current_user == @recipe.user %>
+      <div>
+          <%= link_to 'Generate Shopping List', general_shopping_list_index_path(@recipe), class: 'btn btn-warning px-4' %>
+        </div>
+        <div>
+          <%= link_to '+ Add Ingredient', new_recipe_food_path(recipe_id: @recipe.id), class: 'btn btn-primary px-4' %>
+        </div>
+        
+      <% else %>
+        <%= button_to '+ Add Ingredient', new_recipe_food_path(recipe_id: @recipe.id), class: 'btn btn-primary px-4 disabled' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-body">
+    <% if @ingredients.present? %>
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Measurement Unit</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @ingredients.each do |item| %>
+                <tr>
+                  <td><%= item[:name] %></td>
+                  <td><%= item[:quantity] %></td>
+                  <td><%= item[:measurement_unit] %></td>
+                  <td><%= number_to_currency(item[:price]) %></td>
+                  <td>
+                    <div class="btn-group">
+                      <% if current_user == @recipe.user %>
+                         <%= link_to 'Modify', recipe_food_path(item[:id]), class: 'btn btn-remove' %>
+                        <%= button_to 'Remove', recipe_food_path(item[:id]), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+                        
+                      <% else %>
+                        <small class="text-not-allowed">Not allowed</small>
+                      <% end %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
